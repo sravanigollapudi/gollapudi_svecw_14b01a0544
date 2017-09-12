@@ -119,7 +119,7 @@ public interface StudentArrayOperation {
 	 * @throws IllegalArgumentException
 	 */
 	void remove(Student student);
-
+    
 	
 	/**
 	 * Removes all elements from the specified index (except the element with
