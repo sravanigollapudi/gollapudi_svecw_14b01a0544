@@ -126,9 +126,11 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		try {
 			if(index < 0  || index >= students.length)throw new IllegalArgumentException();
-			/*Student[] n = new Student[students.length - 1];
-		    System.arraycopy(students, 0, n, 0, students[index] );
-		    System.arraycopy(students, element+1, n, element, students.length - element-1);*/
+		    Student[] temp = new Student[students.length-1];
+		    for(int i = 0; i < index; i++) temp[i] = students[i];
+		    int j = index;
+		    for(int i = index+1; i < students.length ; i++) temp[j++] = students[i];
+		    students = temp;
 		}
 		catch(Exception e) {e.printStackTrace();}
 	}
@@ -136,11 +138,23 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
+		
+		
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
 		// Add your implementation here
+		try {
+			if (index < 0 || index >= students.length) throw new IllegalArgumentException();
+            Student[] temp = new Student[index];
+            for(int i = 0; i < students.length; i++) {
+            	temp[i] = students[i];
+            }
+            students = temp;
+		}
+		catch(Exception e) {e.printStackTrace();}
+
 	}
 
 	@Override
@@ -151,6 +165,17 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
+		int r = students.length-index;
+		Student[] dummy = new Student[r];
+		try {
+			if (students == null) throw new IllegalArgumentException();
+            for(int i = r, j = 0; i < students.length; i++, j++) {
+                dummy[j] = students[i];
+            }
+            students = dummy;
+        }
+		catch(Exception e) {e.printStackTrace();}
+
 	}
 
 	@Override
