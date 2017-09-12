@@ -138,18 +138,8 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
-		try {
-			if (student == null) throw new IllegalArgumentException();
-			for(int i = 0; i < students.length; i++) {
-				if(students[i].getId() == student.getId()) {
-					while(i < students.length-1) {
-						students[i] = students[i+1];
-					}
-				}
-			}
-		}
-		catch(Exception e) {e.printStackTrace();}
-
+		
+		
 	}
 
 	@Override
@@ -170,23 +160,6 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
-		try {
-			if(student == null) {
-				throw new IllegalArgumentException();
-		    }
-			
-			int i;
-			for(i = 0; i < students.length; i++) {
-				if(students[i] == student) break;
-			}
-			Student[] temp = new Student[i];
-			for(int j = 0; j < i; j++)
-				temp[j] = students[j];
-			students = temp;
-		}
-		catch(Exception e) {e.printStackTrace();}
-
-		
 	}
 
 	@Override
